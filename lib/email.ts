@@ -134,7 +134,7 @@ export async function sendReorderAlerts(criticalSkus: InventorySku[]) {
     return { sent: false, reason: "No SKUs below the 90-day threshold." };
   }
 
-  const provider = (process.env.EMAIL_PROVIDER || "resend").toLowerCase();
+  const provider = (process.env.EMAIL_PROVIDER || "gmail").toLowerCase();
   const to = resolveRecipients();
   const from =
     process.env.ALERT_FROM_EMAIL ||
