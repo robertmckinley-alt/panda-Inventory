@@ -92,15 +92,15 @@ export function AlertsList({ items }: { items: AlertRow[] }) {
                                               className="w-4 h-4 cursor-pointer"
                                             />
                         {allSelected ? "Deselect all" : "Select all"}
-                      </label>label>
+                      </label>
                       <span className="text-[12px]" style={{ color: "var(--text-muted)" }}>
                         {selectedSkus.length} of {items.length} selected
-                      </span>span>
+                      </span>
                       <div className="flex-1" />
                 {result ? (
                                   <span className="text-[12px]" style={{ color: "var(--text-muted)" }}>
                                     {result}
-                                  </span>span>
+                                  </span>
                                 ) : null}
                       <button
                                   onClick={sendSelected}
@@ -114,8 +114,8 @@ export function AlertsList({ items }: { items: AlertRow[] }) {
                                       : selectedSkus.length === 0
                                         ? "Send selected"
                                         : `Send ${selectedSkus.length} alert${selectedSkus.length === 1 ? "" : "s"}`}
-                      </button>button>
-              </div>div>
+                      </button>
+              </div>
         
           {items.map((s) => {
                   const urgency =
@@ -146,7 +146,7 @@ export function AlertsList({ items }: { items: AlertRow[] }) {
                                                                           aria-label={`Select ${s.sku}`}
                                                                           className="w-4 h-4 cursor-pointer"
                                                                         />
-                                          </label>label>
+                                          </label>
                                           <div
                                                           className="hidden md:grid place-items-center w-10 h-10 rounded-md shrink-0"
                                                           style={{
@@ -156,36 +156,36 @@ export function AlertsList({ items }: { items: AlertRow[] }) {
                                                           }}
                                                         >
                                                         <AlertTriangle className="w-4 h-4" />
-                                          </div>div>
+                                          </div>
                                           <div className="flex-1 min-w-0">
                                                         <div className="flex items-baseline gap-2 flex-wrap">
                                                                         <span className="font-mono text-[12px]" style={{ color: "var(--text-muted)" }}>
                                                                           {s.sku}
-                                                                        </span>span>
-                                                                        <span className="text-[14px] font-semibold tracking-tight">{s.name}</span>span>
-                                                        </div>div>
+                                                                        </span>
+                                                                        <span className="text-[14px] font-semibold tracking-tight">{s.name}</span>
+                                                        </div>
                                                         <div
                                                                           className="mt-1 text-[12px] flex items-center gap-3 flex-wrap"
                                                                           style={{ color: "var(--text-muted)" }}
                                                                         >
                                                                         <span>
                                                                           {s.category} {dot} {s.subcategory}
-                                                                        </span>span>
-                                                                        <span>{dot}</span>span>
+                                                                        </span>
+                                                                        <span>{dot}</span>
                                                                         <span className="inline-flex items-center gap-1">
                                                                                           <Clock className="w-3 h-3" />
                                                                                           Lead time {s.leadTimeDays}d
-                                                                        </span>span>
+                                                                        </span>
                                                           {s.lastInvoiceNumber ? (
                                                                                             <>
-                                                                                                                <span>{dot}</span>span>
+                                                                                                                <span>{dot}</span>
                                                                                                                 <span>
                                                                                                                                       Last PO {s.lastInvoiceNumber} ({s.lastInvoiceDate})
-                                                                                                                  </span>span>
-                                                                                              </>>
+                                                                                                                  </span>
+                                                                                              </>
                                                                                           ) : null}
-                                                        </div>div>
-                                          </div>div>
+                                                        </div>
+                                          </div>
                                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 shrink-0">
                                                         <Stat label="Days left" value={s.daysRemaining.toFixed(1)} accent={urgencyColor} />
                                                         <Stat label="On hand" value={fmtNum(s.currentInventory)} />
@@ -194,11 +194,11 @@ export function AlertsList({ items }: { items: AlertRow[] }) {
                                                                           label="PO value"
                                                                           value={`$${(s.recommendedReorderQty * s.costPerUnit).toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
                                                                         />
-                                          </div>div>
-                              </div>div>
+                                          </div>
+                              </div>
                             );
         })}
-        </div>div>
+        </div>
       );
 }
 
@@ -218,13 +218,13 @@ function Stat({
                           style={{ color: "var(--text-muted)" }}
                         >
                   {label}
-                </div>div>
+                </div>
                 <div
                           className="text-[15px] font-semibold tabular mt-0.5"
                           style={{ color: accent ?? "var(--text)" }}
                         >
                   {value}
-                </div>div>
-          </div>div>
+                </div>
+          </div>
         );
 }
